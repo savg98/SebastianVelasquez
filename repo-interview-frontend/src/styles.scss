@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+.reset-buttons,
+.submit-buttons {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+.reset-buttons {    
+    background-color: #e0e0e0;
+    color: rgb(131, 123, 172);
+  }
+  
+.submit-buttons {
+    background-color: #e3db69;
+    color: rgb(0, 0, 0);
+  }

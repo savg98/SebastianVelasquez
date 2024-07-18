@@ -1,1 +1,45 @@
-<p>products-registration-form works!</p>
+<div class="container">
+    <div class="design-container">
+        <h1 style="text-align: center;">Formulario Registro</h1>
+        <div class="line"></div>
+        <div class="form-container">
+            <form [formGroup]="productsForm" action>
+                <div class="registration-inputs">
+                    <div class="container-input">
+                        <label for="inputId">ID</label>
+                        <input formControlName="id" id="inputId" type="text">
+                    </div>
+                    <div class="container-input">
+                        <label for="name">Nombre</label>
+                        <input formControlName="name" id="name" type="text">
+                    </div>
+                    <div class="container-input">
+                        <label for="description">Descripcion</label>
+                        <input formControlName="description" id="description"
+                            type="text">
+                    </div>
+                    <div class="container-input">
+                        <label for="logo">Logo</label>
+                        <input formControlName="logo" id="logo" type="text">
+                    </div>
+                    <div class="container-input">
+                        <label for="releaseDate">Fecha Liberacion</label>
+                        <input formControlName="releaseDate" id="releaseDate"
+                            type="date">
+                    </div>
+                    <div class="container-input">
+                        <label for="revisionDate">Fecha Revision</label>
+                        <input formControlName="revisionDate" id="revisionDate"
+                            type="date">
+                    </div>
+                </div>
+                <div class="registration-buttons">
+                    <button class="reset-buttons"
+                        type="reset">Reiniciar</button>
+                    <button class="submit-buttons" type="submit">Enviar</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
