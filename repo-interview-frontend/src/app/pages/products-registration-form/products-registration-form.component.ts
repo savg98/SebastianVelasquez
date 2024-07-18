@@ -8,20 +8,46 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ProductsRegistrationFormComponent implements OnInit {
 
-  productsForm: FormGroup;
+  productsForm!: FormGroup;
+  isFormSubmitted = false; 
 
   constructor() {
-    this.productsForm = new FormGroup({
-      id: new FormControl('', Validators.required),
-      name: new FormControl('', Validators.required),
-      description: new FormControl('', Validators.required),
-      logo: new FormControl('', Validators.required),
-      releaseDate: new FormControl('', Validators.required),
-      revisionDate: new FormControl('', Validators.required)
-    });
   }
 
   ngOnInit(): void {
+    this.initializeForm();
   }
 
+  private initializeForm(): void {
+    this.productsForm = new FormGroup({
+      id: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(10)
+      ]),
+      name: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(100)
+      ]),
+      description: new FormControl('', [
+        Validators.required,
+        Validators.minLength(10),
+        Validators.maxLength(200)
+      ]),
+      logo: new FormControl('', Validators.required),
+      releaseDate: new FormControl('', Validators.required),
+      revisionDate: new FormControl({ value: '', disabled: true }, Validators.required)
+    });
+  }
+
+  onSubmit(): void {
+    this.isFormSubmitted = true; 
+
+    if (this.productsForm.valid) {
+      console.log('Formulario válido, enviando datos...');
+    } else {
+      console.log('El formulario no es válido, corrige los errores antes de enviar.');
+    }
+  }
 }

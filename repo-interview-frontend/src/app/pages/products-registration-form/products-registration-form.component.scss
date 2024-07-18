@@ -4,42 +4,45 @@
     justify-content: center;
     align-items: center;
 }
+
 .line {
     width: 100%;
     height: 1px;
-    /* Grosor de la línea */
     background-color: #000;
-    /* Color de la línea */
 }
 
 .design-container {
     width: 80%;
-    /* Ancho del formulario */
     max-width: 600px;
-    /* Ancho máximo del formulario */
-  
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
+    background-color: white;
 }
-.form-container{
+
+.form-container {
     padding: 20px;
+}
+
+.title-form{
+    text-align: center;
+    font-size: 25px;
 }
 
 .registration-inputs {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* Dos columnas por fila */
     gap: 10px;
-    /* Espacio entre los elementos */
 }
 
 .container-input {
     margin-bottom: 10px;
+    padding-bottom: 10px;
+    padding-inline: 10px;
 }
 
 label {
     font-weight: bold;
+    display: block;
+    font-size: 13px;
+    margin-bottom: 7px;
 }
 
 input {
@@ -53,5 +56,30 @@ input {
 .registration-buttons {
     margin-top: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 60px;
 }
+
+.container-input.disabled{
+    color: gray;
+
+    input{
+        opacity: 0.6; 
+        cursor: not-allowed; 
+        background-color: #f0f0f0; 
+        border: 1px solid #ccc; 
+        color: gray;
+        box-shadow: none;
+
+    }
+}
+
+.registration-buttons button:disabled {
+    opacity: 0.6; 
+    cursor: not-allowed; 
+    background-color: #e3db69;
+    border: 1px solid #ccc; 
+    color: gray; 
+    box-shadow: none; 
+}
+

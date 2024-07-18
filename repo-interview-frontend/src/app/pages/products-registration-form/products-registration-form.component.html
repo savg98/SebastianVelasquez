@@ -1,6 +1,6 @@
 <div class="container">
     <div class="design-container">
-        <h1 style="text-align: center;">Formulario Registro</h1>
+        <h1 class="title-form">Formulario Registro</h1>
         <div class="line"></div>
         <div class="form-container">
             <form [formGroup]="productsForm" action>
@@ -27,18 +27,19 @@
                         <input formControlName="releaseDate" id="releaseDate"
                             type="date">
                     </div>
-                    <div class="container-input">
+                    <div class="container-input disabled">
                         <label for="revisionDate">Fecha Revision</label>
-                        <input formControlName="revisionDate" id="revisionDate"
-                            type="date">
+                        <input formControlName="revisionDate"
+                            [disabled]="true"
+                            id="revisionDate" type="date">
                     </div>
                 </div>
                 <div class="registration-buttons">
                     <button class="reset-buttons"
                         type="reset">Reiniciar</button>
-                    <button class="submit-buttons" type="submit">Enviar</button>
+                    <button class="submit-buttons" type="submit"
+                        [disabled]="!productsForm.valid || !isFormSubmitted">Enviar</button>
                 </div>
-
             </form>
         </div>
     </div>
