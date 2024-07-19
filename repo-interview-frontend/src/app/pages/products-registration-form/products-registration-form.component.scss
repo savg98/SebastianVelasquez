@@ -12,8 +12,9 @@
 }
 
 .design-container {
-    width: 80%;
-    max-width: 600px;
+    width: 100%;
+    width: 600px;
+    height: auto;
     background-color: white;
 }
 
@@ -21,7 +22,7 @@
     padding: 20px;
 }
 
-.title-form{
+.title-form {
     text-align: center;
     font-size: 25px;
 }
@@ -33,9 +34,10 @@
 }
 
 .container-input {
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    padding-inline: 10px;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    padding-inline: 1rem;
+    position: relative;
 }
 
 label {
@@ -54,20 +56,20 @@ input {
 }
 
 .registration-buttons {
-    margin-top: 20px;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     gap: 60px;
 }
 
-.container-input.disabled{
+.container-input.disabled {
     color: gray;
 
-    input{
-        opacity: 0.6; 
-        cursor: not-allowed; 
-        background-color: #f0f0f0; 
-        border: 1px solid #ccc; 
+    input {
+        opacity: 0.6;
+        cursor: not-allowed;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
         color: gray;
         box-shadow: none;
 
@@ -75,11 +77,21 @@ input {
 }
 
 .registration-buttons button:disabled {
-    opacity: 0.6; 
-    cursor: not-allowed; 
+    opacity: 0.6;
+    cursor: not-allowed;
     background-color: #e3db69;
-    border: 1px solid #ccc; 
-    color: gray; 
-    box-shadow: none; 
+    border: 1px solid #ccc;
+    color: gray;
+    box-shadow: none;
 }
 
+input.ng-invalid.ng-touched {
+    border: 2px solid red;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.875rem;
+    display: block;
+    margin-top: 0.25rem;
+}

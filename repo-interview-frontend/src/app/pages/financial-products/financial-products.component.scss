@@ -1,0 +1,94 @@
+.container {
+  width: 90%;
+  margin: 20px auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.search-bar {
+  margin: 6px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+
+.search-bar input[type="text"] {
+  padding: 6px;
+  height: 30px;
+  width: 200px;
+  border-radius: 7px;
+  border: 1px solid #ccc;
+}
+
+.table-container {
+  overflow-x: auto;
+  background-color: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+th {
+  padding: 15px; 
+  background-color: #f8f0f0cc;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.pagination-container {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+  justify-content: space-between;
+}
+
+.scroll-container {
+  overflow-x: auto;
+  margin: 30px;
+}
+
+.info-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: #b9a3a3;
+  border-radius: 50%;
+  position: relative;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.info-icon::before {
+  content: "i";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+#pageSize{
+  width: 4rem;
+  height: 1.5rem;
+  text-align: center;
+}
+
+.logo{
+  width: 80px;
+  height: auto;
+}
