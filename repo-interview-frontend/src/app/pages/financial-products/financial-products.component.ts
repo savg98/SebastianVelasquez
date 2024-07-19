@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { FinancialProductsData as Product } from '../../interfaces/financial-products-interface';
 import { Router } from '@angular/router';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-financial-products',
@@ -19,9 +20,9 @@ export class FinancialProductsComponent implements OnInit {
   selectedPage: number = 1;
   pageSize: number = 5;
   totalPages: number[] = [];
-  selectedProductId: string | null = null;
+  selectedProduct: Product | null = null;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private modalService: ModalService) { }
 
   ngOnInit(): void {
     this.products = [
@@ -111,5 +112,31 @@ export class FinancialProductsComponent implements OnInit {
     this.selectedPage = 1;
     this.updateTotalPages();
     this.paginate();
+  }
+
+
+  toggleMenu(product: Product): void {
+    this.selectedProduct = this.selectedProduct === product ? null : product;
+  }
+
+  closeMenu(): void {
+    this.selectedProduct = null;
+  }
+
+  editProduct(product: Product): void {
+    this.router.navigate(['/registrationForm']); 
+  }
+
+  deleteProduct(product: Product, productName: string): void {
+    this.closeMenu();
+    this.modalService.openModal(productName);
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    const clickedInside = (event.target as HTMLElement).closest('.actions');
+    if (!clickedInside) {
+      this.closeMenu();
+    }
   }
 }

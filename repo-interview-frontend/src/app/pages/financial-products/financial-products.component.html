@@ -1,32 +1,47 @@
 <div class="container">
     <div class="search-bar">
-        <input type="text" placeholder="Search" [(ngModel)]="searchTerm" (input)="filterProducts()">
+        <input type="text" placeholder="Search" [(ngModel)]="searchTerm"
+            (input)="filterProducts()">
         <button class="submit-buttons" (click)="addProduct()">Agregar</button>
     </div>
 
     <div class="table-container">
         <div class="scroll-container">
             <table>
+
                 <tr class="header-table">
                     <th>Logo</th>
                     <th>Nombre del producto</th>
-                    <th>Descripción <span class="info-icon"></span></th>
-                    <th>Fecha de liberación <span class="info-icon"></span></th>
-                    <th>Fecha de reestructuración <span class="info-icon"></span></th>
+                    <th>Descripción <span class="info-icon">&#8505;</span></th>
+                    <th>Fecha de liberación <span class="info-icon">&#8505;</span></th>
+                    <th>Fecha de reestructuración <span class="info-icon">&#8505;</span></th>
                 </tr>
-
+                
                 <tr *ngFor="let product of paginatedProducts">
-                    <td><img [src]="product.logo" alt="logo" class="logo"/></td>
+                    <td><img [src]="product.logo" alt="logo"
+                            class="logo" /></td>
                     <td>{{ product.name }}</td>
                     <td>{{ product.description }}</td>
                     <td>{{ product.date_release | date }}</td>
                     <td>{{ product.date_revision | date }}</td>
+                    <td>
+                        <div class="actions">
+                            <button class="menu-btn" (click)="toggleMenu(product)">
+                                <span class="dots">&#8285;</span>
+                            </button>
+                            <div class="menu" *ngIf="selectedProduct === product">
+                                <button (click)="editProduct(product)">Editar</button>
+                                <button (click)="deleteProduct(product, product.name)">Eliminar</button>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
             </table>
         </div>
         <div class="pagination-container">
             <label for="pages">{{ filteredProducts.length }} Resultados</label>
-            <select id="pageSize" [(ngModel)]="pageSize" (change)="updatePageSize()">
+            <select id="pageSize" [(ngModel)]="pageSize"
+                (change)="updatePageSize()">
                 <option [value]="5">5</option>
                 <option [value]="10">10</option>
                 <option [value]="20">20</option>

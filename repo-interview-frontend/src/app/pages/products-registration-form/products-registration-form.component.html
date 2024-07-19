@@ -9,8 +9,7 @@
                         <label for="inputId">ID</label>
                         <input formControlName="id" id="inputId" type="text">
                         <span
-                            *ngIf="productsForm.get('id')?.invalid && productsForm.get('id')?.touched"
-                            class="error-message">
+                            [ngClass]="{'error-message': true, 'show': productsForm.get('id')?.invalid && productsForm.get('id')?.touched}">
                             ID no válido!
                         </span>
                     </div>
@@ -18,8 +17,7 @@
                         <label for="name">Nombre</label>
                         <input formControlName="name" id="name" type="text">
                         <span
-                            *ngIf="productsForm.get('name')?.invalid && productsForm.get('name')?.touched"
-                            class="error-message">
+                            [ngClass]="{'error-message': true, 'show': productsForm.get('name')?.invalid && productsForm.get('name')?.touched}">
                             Este campo es requerido!
                         </span>
                     </div>
@@ -28,8 +26,7 @@
                         <input formControlName="description" id="description"
                             type="text">
                         <span
-                            *ngIf="productsForm.get('description')?.invalid && productsForm.get('description')?.touched"
-                            class="error-message">
+                            [ngClass]="{'error-message': true, 'show': productsForm.get('description')?.invalid && productsForm.get('description')?.touched}">
                             Este campo es requerido!
                         </span>
                     </div>
@@ -37,32 +34,32 @@
                         <label for="logo">Logo</label>
                         <input formControlName="logo" id="logo" type="text">
                         <span
-                            *ngIf="productsForm.get('logo')?.invalid && productsForm.get('logo')?.touched"
-                            class="error-message">
+                            [ngClass]="{'error-message': true, 'show': productsForm.get('logo')?.invalid && productsForm.get('logo')?.touched}">
                             Este campo es requerido!
                         </span>
                     </div>
                     <div class="container-input">
                         <label for="releaseDate">Fecha Liberacion</label>
                         <input formControlName="releaseDate" id="releaseDate"
-                            type="date">
+                            type="date" [min]="today">
                         <span
-                            *ngIf="productsForm.get('releaseDate')?.invalid && productsForm.get('releaseDate')?.touched"
-                            class="error-message">
-                            Este campo es requerido!
+                            [ngClass]="{'error-message': true, 'show': productsForm.get('releaseDate')?.invalid && productsForm.get('releaseDate')?.touched}">
+                            Este campo es requerido y la fecha debe ser hoy o en
+                            el futuro!
                         </span>
                     </div>
                     <div class="container-input disabled">
                         <label for="revisionDate">Fecha Revision</label>
-                        <input formControlName="revisionDate" [disabled]="true"
+                        <input formControlName="revisionDate"
                             id="revisionDate" type="date">
                     </div>
+
                 </div>
                 <div class="registration-buttons">
                     <button class="reset-buttons"
                         type="reset">Reiniciar</button>
                     <button class="submit-buttons" type="submit"
-                        [disabled]="!productsForm.valid || !isFormSubmitted">Enviar</button>
+                        [disabled]="!productsForm.valid">Enviar</button>
                 </div>
             </form>
         </div>

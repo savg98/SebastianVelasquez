@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products-registration-form',
@@ -9,13 +10,17 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ProductsRegistrationFormComponent implements OnInit {
 
   productsForm!: FormGroup;
-  isFormSubmitted = false; 
+  isFormSubmitted:boolean = false; 
+  today:string;
 
-  constructor() {
+  constructor(private router: Router) {
+    const now = new Date();
+    this.today = now.toISOString().split('T')[0]; 
   }
 
   ngOnInit(): void {
     this.initializeForm();
+    this.getReleaseDate();
   }
 
   private initializeForm(): void {
@@ -41,13 +46,25 @@ export class ProductsRegistrationFormComponent implements OnInit {
     });
   }
 
+  private getReleaseDate(): void {
+    this.productsForm.get('releaseDate')?.valueChanges.subscribe(releaseDate => {
+      if (releaseDate) {
+        const revisionDate = this.calculateRevisionDate(releaseDate);
+        this.productsForm.get('revisionDate')?.setValue(revisionDate);
+      } else {
+        this.productsForm.get('revisionDate')?.reset();
+      }
+    });
+  }
+
+  private calculateRevisionDate(releaseDate: string): string {
+    const date = new Date(releaseDate);
+    date.setFullYear(date.getFullYear() + 1);
+    return date.toISOString().split('T')[0]; 
+  }
+
   onSubmit(): void {
     this.isFormSubmitted = true; 
-
-    if (this.productsForm.valid) {
-      console.log('Formulario válido, enviando datos...');
-    } else {
-      console.log('El formulario no es válido, corrige los errores antes de enviar.');
-    }
+    this.router.navigate(['/financialProducts']); 
   }
 }
