@@ -44,8 +44,7 @@
                             type="date" [min]="today">
                         <span
                             [ngClass]="{'error-message': true, 'show': productsForm.get('releaseDate')?.invalid && productsForm.get('releaseDate')?.touched}">
-                            Este campo es requerido y la fecha debe ser hoy o en
-                            el futuro!
+                            Este campo es requerido!
                         </span>
                     </div>
                     <div class="container-input disabled">

@@ -15,7 +15,7 @@ export class ProductsRegistrationFormComponent implements OnInit {
   productsForm!: FormGroup;
   isFormSubmitted: boolean = false;
   today: string;
-  updating: boolean = false; // Nueva variable para determinar el modo de edición
+  updating: boolean = false; 
 
   constructor(
     private router: Router,
