@@ -11,8 +11,8 @@ export class financialProductsService {
   url: string = EnvironmentDev.URL;
 
   constructor(private http: HttpClient) { }
-  
-  getFinancialProducts(): Observable<FinancialProductsList>{
+
+  getFinancialProducts(): Observable<FinancialProductsList> {
     return this.http.get(`${this.url}/bp/products`) as Observable<FinancialProductsList>;
   }
 
@@ -31,6 +31,6 @@ export class financialProductsService {
   getFinancialProductById(id: string): Observable<FinancialProductsData> {
     return this.http.get<FinancialProductsData>(`${this.url}/bp/products/${id}`);
   }
-  
+
 
 }

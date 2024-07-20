@@ -12,8 +12,7 @@
 }
 
 .design-container {
-    width: 100%;
-    width: 800px;
+    width: 50%;
     height: auto;
     background-color: white;
 }
@@ -66,16 +65,15 @@ input {
 
 .container-input.disabled {
     color: gray;
+}
 
-    input {
-        opacity: 0.6;
-        cursor: not-allowed;
-        background-color: #f0f0f0;
-        border: 1px solid #ccc;
-        color: gray;
-        box-shadow: none;
-
-    }
+.container-input.disabled input {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    color: gray;
+    box-shadow: none;
 }
 
 .registration-buttons button:disabled {
@@ -100,5 +98,25 @@ input.ng-invalid.ng-touched {
 }
 
 .error-message.show {
-    display: block; /* Muestra el mensaje cuando tiene la clase 'show' */
-  }
+    display: block;
+}
+
+@media (max-width: 800px) {
+    .design-container {
+        width: 80%;
+    }
+
+    .registration-inputs {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .registration-buttons {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .title-form {
+        font-size: 20px;
+    }
+}
