@@ -15,7 +15,6 @@ This project is a coding challenge for Devsu LLC, developed using Angular 16.2. 
 1. Clone the repository:
 
    git clone https://github.com/savg98/SebastianVelasquez.git
-   cd SebastianVelasquez
 
 
 2. Install dependencies:
