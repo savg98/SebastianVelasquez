@@ -9,6 +9,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FinancialProductsComponent } from './pages/financial-products/financial-products.component';
 import { ProductsRegistrationFormComponent } from './pages/products-registration-form/products-registration-form.component';
 import { DeleteModalComponent } from './shared/modals/delete-modal/delete-modal.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import { DeleteModalComponent } from './shared/modals/delete-modal/delete-modal.
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

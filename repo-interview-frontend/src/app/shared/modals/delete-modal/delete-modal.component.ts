@@ -26,7 +26,6 @@ export class DeleteModalComponent implements OnInit {
   }
 
   confirmDelete() {
-    console.log('Producto eliminado:', this.productName);
-    this.closeModal();
+    this.modalService.confirm(); 
   }
 }

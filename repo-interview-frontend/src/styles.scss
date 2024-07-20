@@ -1,11 +1,15 @@
 .reset-buttons,
 .submit-buttons {
-  padding: 10px 20px;
+  padding: 15px 25px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
+.reset-buttons:hover,
+.submit-buttons:hover {
+  opacity: 0.8; 
+}
 
 .reset-buttons {
   background-color: #e0e0e0;

@@ -13,6 +13,7 @@ export interface FinancialProductsResponse {
     data: FinancialProductsData   
 }
 
+
 export interface FinancialProductsList {
     data : FinancialProductsData[]
 }

@@ -1,8 +1,9 @@
 <div class="modal" [ngClass]="{'show': isModalOpen}">
     <div class="modal-content">
-        <span class="close" (click)="closeModal()">&times;</span>
         <p>¿Estás seguro de eliminar el producto {{ productName }}?</p>
-        <button class="reset-buttons" (click)="closeModal()">Cancelar</button>
-        <button class="submit-buttons" (click)="confirmDelete()">Confirmar</button>
+        <div class="button-container">
+            <button class="reset-buttons" (click)="closeModal()">Cancelar</button>
+            <button class="submit-buttons" (click)="confirmDelete()">Confirmar</button>
+        </div>
     </div>
 </div>
